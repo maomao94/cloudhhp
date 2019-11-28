@@ -362,3 +362,6 @@ public class TestController {
 - 存储转发和超时转发是系统的补偿机制，在没有复杂分布式事务的情况可以保障一致性
 
  感谢捐赠 github代码：https://github.com/feiweiwei/BillSpringBatch
+ 
+ 如果想了解netty怎么玩，银联8583报文怎么转换，可以找一下我分享的netty项目
+ https://gitee.com/hehanpeng/netty
