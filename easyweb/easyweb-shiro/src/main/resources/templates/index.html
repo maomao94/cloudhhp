@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EasyWeb开发平台</title>
+    <% include("./layout/css.html"){} %>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!-- 头部 -->
+    <% include("./layout/header.html"){} %>
+    <!-- 侧边栏 -->
+    <% include("./layout/side.html"){} %>
+    <!-- 主体部分 -->
+    <div class="layui-body"></div>
+    <!-- 底部 -->
+    <div class="layui-footer">
+        copyright © 2019 easyweb.vip all rights reserved.<span class="pull-right">v3.1.3</span>
+    </div>
+</div>
+
+<!-- js部分 -->
+<% include("./layout/js.html"){} %>
+<script>
+    layui.use(['index'], function () {
+        var $ = layui.jquery;
+        var index = layui.index;
+
+        // 默认加载主页
+        index.loadHome({
+            menuPath: 'console',
+            menuName: '<i class="layui-icon layui-icon-home"></i>'
+        });
+
+    });
+</script>
+</body>
+</html>

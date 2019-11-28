@@ -1,0 +1,109 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/easyweb-shiro?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    hikari:
+      username: root
+      password: 123456
+      # >= 6.x: com.mysql.cj.jdbc.Driver
+      # <= 5.x: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos server的地址
+        server-addr: localhost:8848
+#        namespace: b2672c34-f2ca-42a1-bd82-4cd896bc156a
+        cluster-name: NJ
+        metadata:
+          version: 1.0.0
+          AppNo: 3
+          GroupNo: 0
+          WorkNo: 0
+    sentinel:
+      filter:
+        # 打开/关闭掉对Spring MVC端点的保护
+        enabled: true
+      transport:
+        # 指定sentinel 控制台的地址
+        dashboard: 127.0.0.1:8080
+        client-ip: 192.168.43.55
+  application:
+    # 服务名称尽量用-，不要用_，不要用特殊字符
+    name: transport
+  zipkin:
+    base-url: http://localhost:9411/
+    discoveryClientEnabled: false
+  sleuth:
+    sampler:
+      # 抽样率，默认是0.1（10%）
+      probability: 1.0
+  main:
+    allow-bean-definition-overriding: true
+  redis:
+    #    host: 127.0.0.1
+    #    port: 7001
+    database: 0
+    lettuce:
+      shutdown-timeout: 200ms
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+    sentinel:
+      master: ARF
+      nodes: 134.175.188.108:26379,134.175.188.108:26479,134.175.188.108:26579
+server:
+  port: 8013
+ribbon:
+  eager-load:
+    enabled: true
+#    clients: user-center
+logging:
+  level:
+    com.hehanpeng.framework.cloudhhp.module.transport.dao: debug
+    org.springframework.cloud.sleuth: debug
+#    com.alibaba.nacos: error
+#    org.springframework.jdbc.core: debug
+  file: log/transport.log
+feign:
+  sentinel:
+    # 为feign整合sentinel
+    enabled: true
+  client:
+    config:
+      # 全局配置
+      default:
+        loggerLevel: full
+  httpclient:
+    # 让feign使用apache httpclient做请求；而不是默认的urlconnection
+    enabled: true
+    # feign的最大连接数
+    max-connections: 200
+    # feign单个路径的最大连接数
+    max-connections-per-route: 50
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+resttemplate:
+  sentinel:
+    # 设置成false，表示关闭@SentinelRestTemplate注解
+    enabled: true
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: transport-producer-group
+transport:
+  rocketmq:
+    transportReqTopic: transport-request
+    transportTag: transport-request
+    transportConsumerGroup: transport-consumer-group
+
+    coreReqTopic: core-request
+    coreTag: core-request
+    coreConsumerGroup: core-consumer-group

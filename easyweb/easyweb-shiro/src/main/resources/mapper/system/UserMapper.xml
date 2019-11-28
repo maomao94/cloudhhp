@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wf.ew.system.dao.UserMapper">
+
+    <select id="selectByUsername" resultType="com.wf.ew.system.model.User">
+        select * from sys_user where username=#{username}
+    </select>
+
+    <select id="listFull" resultType="com.wf.ew.system.model.User">
+        SELECT a.*
+        FROM sys_user a
+        <where>
+            <if test="page.pageData.roleId!=null">
+                and a.user_id in (select user_id from sys_user_role where role_id=#{page.pageData.roleId})
+            </if>
+            <if test="page.pageData.nickName!=null">
+                and a.nick_name like '%${page.pageData.nickName}%'
+            </if>
+            <if test="page.pageData.username!=null">
+                and a.username like '%${page.pageData.username}%'
+            </if>
+            <if test="page.pageData.state!=null">
+                and a.state =#{page.pageData.state}
+            </if>
+        </where>
+    </select>
+</mapper>

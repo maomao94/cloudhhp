@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.forward.dao.forward.FwdRegisterMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.forward.domain.entity.forward.FwdRegister">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="REFERENCE" jdbcType="BIGINT" property="reference" />
+    <result column="WORK_ID" jdbcType="VARCHAR" property="workId" />
+    <result column="NEXT_ACTIVE_TIME" jdbcType="TIMESTAMP" property="nextActiveTime" />
+    <result column="FWD_TYPE" jdbcType="VARCHAR" property="fwdType" />
+    <result column="RETRY_COUNT" jdbcType="INTEGER" property="retryCount" />
+    <result column="RETRY_LIMIT" jdbcType="INTEGER" property="retryLimit" />
+    <result column="BASE_INTERVAL" jdbcType="BIGINT" property="baseInterval" />
+    <result column="INTERVAL_DELTA" jdbcType="BIGINT" property="intervalDelta" />
+    <result column="FWD_STATUS" jdbcType="VARCHAR" property="fwdStatus" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="CALL_CLASS" jdbcType="VARCHAR" property="callClass" />
+    <result column="CALL_METHOD" jdbcType="VARCHAR" property="callMethod" />
+    <result column="DATA_CENTER_ID" jdbcType="VARCHAR" property="dataCenterId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="EXT1" jdbcType="VARCHAR" property="ext1" />
+    <result column="EXT2" jdbcType="VARCHAR" property="ext2" />
+    <result column="EXT3" jdbcType="VARCHAR" property="ext3" />
+    <result column="EXT4" jdbcType="VARCHAR" property="ext4" />
+    <result column="EXT5" jdbcType="VARCHAR" property="ext5" />
+  </resultMap>
+</mapper>

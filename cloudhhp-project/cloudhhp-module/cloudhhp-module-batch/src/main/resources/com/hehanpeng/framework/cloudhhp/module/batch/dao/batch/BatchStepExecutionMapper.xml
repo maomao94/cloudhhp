@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchStepExecutionMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.batch.domain.entity.batch.BatchStepExecution">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="STEP_EXECUTION_ID" jdbcType="BIGINT" property="stepExecutionId" />
+    <result column="VERSION" jdbcType="BIGINT" property="version" />
+    <result column="STEP_NAME" jdbcType="VARCHAR" property="stepName" />
+    <result column="JOB_EXECUTION_ID" jdbcType="BIGINT" property="jobExecutionId" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="COMMIT_COUNT" jdbcType="BIGINT" property="commitCount" />
+    <result column="READ_COUNT" jdbcType="BIGINT" property="readCount" />
+    <result column="FILTER_COUNT" jdbcType="BIGINT" property="filterCount" />
+    <result column="WRITE_COUNT" jdbcType="BIGINT" property="writeCount" />
+    <result column="READ_SKIP_COUNT" jdbcType="BIGINT" property="readSkipCount" />
+    <result column="WRITE_SKIP_COUNT" jdbcType="BIGINT" property="writeSkipCount" />
+    <result column="PROCESS_SKIP_COUNT" jdbcType="BIGINT" property="processSkipCount" />
+    <result column="ROLLBACK_COUNT" jdbcType="BIGINT" property="rollbackCount" />
+    <result column="EXIT_CODE" jdbcType="VARCHAR" property="exitCode" />
+    <result column="EXIT_MESSAGE" jdbcType="VARCHAR" property="exitMessage" />
+    <result column="LAST_UPDATED" jdbcType="TIMESTAMP" property="lastUpdated" />
+  </resultMap>
+</mapper>

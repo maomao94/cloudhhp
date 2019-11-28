@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.core.dao.core.CoreFlowContextMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.core.domain.entity.core.CoreFlowContext">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID_FLOW_CONTEXT" jdbcType="BIGINT" property="idFlowContext" />
+    <result column="WORKFLOW_NAME" jdbcType="VARCHAR" property="workflowName" />
+    <result column="FLOW_STATUS" jdbcType="VARCHAR" property="flowStatus" />
+    <result column="REQ_TIME" jdbcType="TIMESTAMP" property="reqTime" />
+    <result column="RSP_TIME" jdbcType="TIMESTAMP" property="rspTime" />
+    <result column="CURRENT_WORK" jdbcType="VARCHAR" property="currentWork" />
+    <result column="PROCESS_RESULT" jdbcType="VARCHAR" property="processResult" />
+  </resultMap>
+</mapper>

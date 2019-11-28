@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.forward.dao.forward.FwdDetailMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.forward.domain.entity.forward.FwdDetail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="REGID" jdbcType="BIGINT" property="regid" />
+    <result column="FORWARD_TIME" jdbcType="TIMESTAMP" property="forwardTime" />
+    <result column="FORWARD_FLAG" jdbcType="VARCHAR" property="forwardFlag" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+</mapper>

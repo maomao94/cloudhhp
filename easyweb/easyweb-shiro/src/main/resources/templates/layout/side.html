@@ -1,0 +1,47 @@
+<div class="layui-side">
+    <div class="layui-side-scroll">
+
+        <ul class="layui-nav layui-nav-tree arrow2" lay-filter="admin-side-nav" lay-accordion="true" style="margin-top: 15px;">
+            <% for(item in menus) { %>
+            <li class="layui-nav-item">
+                <a lay-href="${item.menuUrl}"><i class="${item.menuIcon}"></i>&emsp;<cite>${item.menuName}</cite></a>
+                <% if(item.subMenus.~size>0) { %>
+                <dl class="layui-nav-child">
+                    <% for(subItem in item.subMenus) { %>
+                    <dd>
+                        <a lay-href="${subItem.menuUrl}">${subItem.menuName}</a>
+                        <% if(subItem.subMenus.~size>0) { %>
+                        <dl class="layui-nav-child">
+                            <% for(thrItem in subItem.subMenus) { %>
+                            <dd>
+                                <a lay-href="${thrItem.menuUrl}">${thrItem.menuName}</a>
+                                <% if(thrItem.subMenus.~size>0) { %>
+                                <dl class="layui-nav-child">
+                                    <% for(fourItem in thrItem.subMenus) { %>
+                                    <dd>
+                                        <a lay-href="${fourItem.menuUrl}">${fourItem.menuName}</a>
+                                        <% if(fourItem.subMenus.~size>0) { %>
+                                        <dl class="layui-nav-child">
+                                            <% for(fiveItem in fourItem.subMenus) { %>
+                                            <dd><a lay-href="${fiveItem.menuUrl}">${fiveItem.menuName}</a></dd>
+                                            <% } %>
+                                        </dl>
+                                        <% } %>
+                                    </dd>
+                                    <% } %>
+                                </dl>
+                                <% } %>
+                            </dd>
+                            <% } %>
+                        </dl>
+                        <% } %>
+                    </dd>
+                    <% } %>
+                </dl>
+                <% } %>
+            </li>
+            <% } %>
+        </ul>
+
+    </div>
+</div>

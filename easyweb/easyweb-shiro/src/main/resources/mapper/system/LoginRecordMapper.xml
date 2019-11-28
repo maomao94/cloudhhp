@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wf.ew.system.dao.LoginRecordMapper">
+
+    <select id="listFull" resultType="com.wf.ew.system.model.LoginRecord">
+        SELECT a.*,b.nick_name,b.username
+        FROM sys_login_record a
+        left join sys_user b on a.user_id=b.user_id
+        <where>
+            <if test="page.pageData.startDate != null">
+                AND a.create_time&gt;=#{page.pageData.startDate}
+            </if>
+            <if test="page.pageData.endDate != null">
+                AND a.create_time&lt;=#{page.pageData.endDate}
+            </if>
+            <if test="page.pageData.account != null">
+                AND b.username like '%${page.pageData.account}%'
+            </if>
+        </where>
+    </select>
+
+    <select id="listAll" resultType="com.wf.ew.system.model.LoginRecord">
+        SELECT a.*,b.nick_name,b.username
+        FROM sys_login_record a
+        left join sys_user b on a.user_id=b.user_id
+        <where>
+            <if test="pageData.startDate != null">
+                AND a.create_time&gt;=#{pageData.startDate}
+            </if>
+            <if test="pageData.endDate != null">
+                AND a.create_time&lt;=#{pageData.endDate}
+            </if>
+            <if test="pageData.account != null">
+                AND b.username like '%${pageData.account}%'
+            </if>
+        </where>
+    </select>
+</mapper>

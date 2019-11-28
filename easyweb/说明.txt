@@ -1,0 +1,7 @@
+EasyWeb后台集成iframe版本
+数据库：MySQL
+开发工具：IDEA
+语言：SpringBoot、Shiro、MyBatis、MyBatis-plus
+在线演示地址：http://47.98.107.251:8089/
+
+jwtp数据库脚本是api接口权限框架JwtPermission的数据库表

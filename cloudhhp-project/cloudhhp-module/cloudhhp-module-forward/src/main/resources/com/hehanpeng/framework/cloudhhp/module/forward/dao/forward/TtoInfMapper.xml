@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.forward.dao.forward.TtoInfMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.forward.domain.entity.forward.TtoInf">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="TTOID" jdbcType="BIGINT" property="ttoid" />
+    <result column="REFERENCE" jdbcType="BIGINT" property="reference" />
+    <result column="REGISTER_TIME" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="TTO_TYPE" jdbcType="VARCHAR" property="ttoType" />
+    <result column="TTO_STATUS" jdbcType="VARCHAR" property="ttoStatus" />
+    <result column="BIZ_TYPE" jdbcType="VARCHAR" property="bizType" />
+    <result column="CALL_CLASS" jdbcType="VARCHAR" property="callClass" />
+    <result column="CALL_METHOD" jdbcType="VARCHAR" property="callMethod" />
+    <result column="WORK_ID" jdbcType="VARCHAR" property="workId" />
+    <result column="EXCUTE_TIME" jdbcType="TIMESTAMP" property="excuteTime" />
+    <result column="EXPIRED_TIME" jdbcType="VARCHAR" property="expiredTime" />
+    <result column="DATA_CENTER_ID" jdbcType="VARCHAR" property="dataCenterId" />
+    <result column="EXT1" jdbcType="VARCHAR" property="ext1" />
+    <result column="EXT2" jdbcType="VARCHAR" property="ext2" />
+    <result column="EXT3" jdbcType="VARCHAR" property="ext3" />
+    <result column="EXT4" jdbcType="VARCHAR" property="ext4" />
+    <result column="EXT5" jdbcType="VARCHAR" property="ext5" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+</mapper>

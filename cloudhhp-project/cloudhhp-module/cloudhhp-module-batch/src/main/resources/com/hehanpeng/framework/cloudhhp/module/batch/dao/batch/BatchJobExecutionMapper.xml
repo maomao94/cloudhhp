@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchJobExecutionMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.batch.domain.entity.batch.BatchJobExecution">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="JOB_EXECUTION_ID" jdbcType="BIGINT" property="jobExecutionId" />
+    <result column="VERSION" jdbcType="BIGINT" property="version" />
+    <result column="JOB_INSTANCE_ID" jdbcType="BIGINT" property="jobInstanceId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="START_TIME" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="END_TIME" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="EXIT_CODE" jdbcType="VARCHAR" property="exitCode" />
+    <result column="EXIT_MESSAGE" jdbcType="VARCHAR" property="exitMessage" />
+    <result column="LAST_UPDATED" jdbcType="TIMESTAMP" property="lastUpdated" />
+    <result column="JOB_CONFIGURATION_LOCATION" jdbcType="VARCHAR" property="jobConfigurationLocation" />
+  </resultMap>
+</mapper>

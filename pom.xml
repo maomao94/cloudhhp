@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--<parent>
+        <groupId>org.minbox.framework</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>0.1.0.RELEASE</version>
+        <relativePath>../oss-parent</relativePath>
+    </parent>-->
+    <packaging>pom</packaging>
+    <modules>
+        <module>cloudhhp-project</module>
+        <module>easyweb/easyweb-shiro</module>
+    </modules>
+    <groupId>com.hehanpeng.framework</groupId>
+    <artifactId>cloudhhp</artifactId>
+    <version>1.0.0.RELEASE</version>
+    <name>cloudhhp</name>
+    <description>
+        cloudhhp 是一款基于SpringCloud的框架，集合了一些我工作中用到的技术
+    </description>
+    <url></url>
+    <build>
+        <plugins>
+            <!--jdk version-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.1.5.RELEASE</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

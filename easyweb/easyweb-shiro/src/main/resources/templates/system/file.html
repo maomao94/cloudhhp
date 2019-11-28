@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>文件管理</title>
+    <% include("../layout/css.html"){} %>
+    <style>
+        .dropdown-menu-nav .layui-icon {
+            font-size: 15px !important;
+        }
+    </style>
+</head>
+<body>
+<!-- 正文开始 -->
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div class="layui-form toolbar">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label w-auto">上传日期：</label>
+                        <div class="layui-input-inline mr0">
+                            <input id="searchDate" name="dir" class="layui-input date-icon" type="text"
+                                   placeholder="选择上传日期" autocomplete="off"/>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <button class="layui-btn icon-btn" lay-filter="searchSubmit" lay-submit>
+                            <i class="layui-icon">&#xe615;</i>搜索
+                        </button>
+                        <button id="btnUpload" class="layui-btn icon-btn"><i class="layui-icon">&#xe681;</i>上传</button>
+                        <div class="dropdown-menu dropdown-hover" style="margin-left: 10px;">
+                            <button class="layui-btn layui-btn-primary icon-btn">
+                                &nbsp;弹窗选择 <i class="layui-icon layui-icon-drop"></i></button>
+                            <ul class="dropdown-menu-nav dropdown-bottom-right">
+                                <div class="dropdown-anchor"></div>
+                                <li><a id="btnChoImg"><i class="layui-icon layui-icon-picture"></i>选择图片文件</a></li>
+                                <li><a id="btnChoFile"><i class="layui-icon layui-icon-note"></i>选择全部文件</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="layui-table" id="fileTable" lay-filter="fileTable"></table>
+        </div>
+    </div>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="tableBar">
+    <a class="layui-btn layui-btn-xs" lay-event="open">查看</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<!-- js部分 -->
+<% include("../layout/js.html"){} %>
+<script>
+    layui.use(['layer', 'table', 'util', 'tableX', 'form', 'upload', 'laydate', 'fileChoose', 'dropdown'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var table = layui.table;
+        var util = layui.util;
+        var tableX = layui.tableX;
+        var form = layui.form;
+        var upload = layui.upload;
+        var laydate = layui.laydate;
+        var fileChoose = layui.fileChoose;
+        var dropdown = layui.dropdown;
+
+        // 渲染表格
+        var insTb = tableX.render({
+            elem: '#fileTable',
+            url: 'listAll',
+            page: false,
+            height: 'full-100',
+            cellMinWidth: 160,
+            cols: [[
+                {type: 'numbers'},
+                {field: 'name', title: '文件名'},
+                {
+                    templet: function (d) {
+                        var dw = 1024, dwStr = 'KB';
+                        if (d.size / 1024 > 1024) {
+                            dw = dw * 1024;
+                            dwStr = 'MB';
+                        }
+                        return parseFloat((d.size / dw).toFixed(2)) + dwStr;
+                    }, title: '文件大小', align: 'center', width: 160
+                },
+                {
+                    templet: function (d) {
+                        return util.toDateString(d.createTime);
+                    }, title: '创建时间', align: 'center', width: 160
+                },
+                {
+                    templet: function (d) {
+                        return util.toDateString(d.updateTime);
+                    }, title: '修改时间', align: 'center', width: 160
+                },
+                {align: 'center', toolbar: '#tableBar', title: '操作', width: 140, minWidth: 140}
+            ]],
+            response: {
+                statusCode: 200
+            }
+        });
+
+        // 搜索
+        form.on('submit(searchSubmit)', function (data) {
+            insTb.reload({where: data.field});
+        });
+
+        // 工具条点击事件
+        table.on('tool(fileTable)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === 'open') { // 查看
+                var url = '${ctxPath}/file/' + data.url;
+                if ('img' == fileChoose.getFileType(url)) {
+                    layer.photos({photos: {data: [{src: url}]}, shade: .1, closeBtn: true});
+                } else {
+                    layer.prompt({
+                        value: url,
+                        title: '文件地址',
+                        shade: .1,
+                        btn: ['打开', '关闭']
+                    }, function (value, index, elem) {
+                        layer.close(index);
+                        window.open(url);
+                    });
+                }
+
+            } else if (layEvent === 'del') { // 删除
+                doDel(obj);
+            }
+        });
+
+        // 删除
+        function doDel(obj) {
+            layer.confirm('确定要删除此文件吗？', {
+                shade: .1,
+                skin: 'layui-layer-admin'
+            }, function (i) {
+                layer.close(i);
+                layer.load(2);
+                $.post('del', {
+                    file: obj.data.url
+                }, function (res) {
+                    layer.closeAll('loading');
+                    if (res.code == 200) {
+                        layer.msg(res.msg, {icon: 1});
+                        obj.del();
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
+
+        // 渲染日期选择组件
+        laydate.render({
+            elem: '#searchDate',
+            format: 'yyyy/MM/dd',
+            trigger: 'click'
+        });
+
+        // 上传按钮
+        upload.render({
+            elem: '#btnUpload',
+            url: 'upload',
+            accept: 'file',
+            before: function (obj) {
+                layer.load(2);
+            },
+            done: function (res) {
+                layer.closeAll('loading');
+                if (res.code == 200) {
+                    insTb.reload();
+                } else {
+                    layer.msg(res.msg, {icon: 2});
+                }
+            },
+            error: function () {
+                layer.closeAll('loading');
+                layer.msg('上传失败', {icon: 2});
+            }
+        });
+
+        // 弹窗选择
+        $('#btnChoImg').click(function () {
+            chooseFile("png,jpg,jpeg,gif,bmp");
+        });
+        $('#btnChoFile').click(function () {
+            chooseFile("");
+        });
+
+        function chooseFile(exts) {
+            fileChoose.open({
+                fileUrl: '${ctxPath}/file/',   // 文件查看url
+                listUrl: '${ctxPath}/file/list?exts=' + exts,  // 文件列表url
+                num: 3,  // 最大选择数量
+                dialog: {
+                    offset: '60px'
+                },
+                upload: {
+                    url: '${ctxPath}/file/upload',
+                    accept: exts ? 'images' : 'file',
+                },
+                onChoose: function (urls) {
+                    layer.msg('你选择了：' + JSON.stringify(urls), {icon: 1});
+                }
+            });
+        }
+
+    });
+</script>
+</body>
+</html>

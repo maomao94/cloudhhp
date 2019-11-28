@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cloudhhp</artifactId>
+        <groupId>com.hehanpeng.framework</groupId>
+        <version>1.0.0.RELEASE</version>
+        <relativePath>../..</relativePath>
+    </parent>
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cloudhhp-dependencies</artifactId>
+    <properties>
+        <main.basedir>${basedir}/../..</main.basedir>
+        <spring.boot.version>2.1.5.RELEASE</spring.boot.version>
+        <spring.cloud.version>Greenwich.SR1</spring.cloud.version>
+        <spring.cloud.alibaba.version>0.9.0.RELEASE</spring.cloud.alibaba.version>
+        <fastjson.version>1.2.56</fastjson.version>
+        <tk.mybatis.version>2.1.5</tk.mybatis.version>
+        <com.github.pagehelper.version>1.2.10</com.github.pagehelper.version>
+        <lombok.version>1.18.8</lombok.version>
+        <org.redisson.version>3.8.2</org.redisson.version>
+        <com.alibaba.dubbo.registry.nacos.version>0.0.1</com.alibaba.dubbo.registry.nacos.version>
+        <com.alibaba.dubbo.version>2.6.5</com.alibaba.dubbo.version>
+        <com.alibaba.spring.spring.context.support.version>1.0.2</com.alibaba.spring.spring.context.support.version>
+        <brave-instrumentation-dubbo-rpc.version>5.8.0</brave-instrumentation-dubbo-rpc.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--SpringBoot Dependencies-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--整合spring cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--整合spring cloud alibaba-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--cloudhhp Common-->
+            <dependency>
+                <groupId>com.hehanpeng.framework</groupId>
+                <artifactId>cloudhhp-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--cloudhhp api-core-->
+            <dependency>
+                <groupId>com.hehanpeng.framework</groupId>
+                <artifactId>cloudhhp-api-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--cloudhhp api-forward-->
+            <dependency>
+                <groupId>com.hehanpeng.framework</groupId>
+                <artifactId>cloudhhp-api-forward</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--fastJson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${tk.mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${com.github.pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>${org.redisson.version}</version>
+            </dependency>
+            <!-- Dubbo Nacos registry dependency -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo-registry-nacos</artifactId>
+                <version>${com.alibaba.dubbo.registry.nacos.version}</version>
+            </dependency>
+
+            <!-- Dubbo dependency -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${com.alibaba.dubbo.version}</version>
+            </dependency>
+
+            <!-- Alibaba Spring Context extension -->
+            <dependency>
+                <groupId>com.alibaba.spring</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${com.alibaba.spring.spring.context.support.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.zipkin.brave</groupId>
+                <artifactId>brave-instrumentation-dubbo-rpc</artifactId>
+                <version>${brave-instrumentation-dubbo-rpc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

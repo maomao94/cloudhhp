@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchJobExecutionParamsMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.batch.domain.entity.batch.BatchJobExecutionParams">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="JOB_EXECUTION_ID" jdbcType="BIGINT" property="jobExecutionId" />
+    <result column="TYPE_CD" jdbcType="VARCHAR" property="typeCd" />
+    <result column="KEY_NAME" jdbcType="VARCHAR" property="keyName" />
+    <result column="STRING_VAL" jdbcType="VARCHAR" property="stringVal" />
+    <result column="DATE_VAL" jdbcType="TIMESTAMP" property="dateVal" />
+    <result column="LONG_VAL" jdbcType="BIGINT" property="longVal" />
+    <result column="DOUBLE_VAL" jdbcType="DOUBLE" property="doubleVal" />
+    <result column="IDENTIFYING" jdbcType="CHAR" property="identifying" />
+  </resultMap>
+</mapper>

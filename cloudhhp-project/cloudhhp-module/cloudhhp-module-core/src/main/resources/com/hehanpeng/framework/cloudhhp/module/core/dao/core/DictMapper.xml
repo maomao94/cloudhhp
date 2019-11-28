@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.core.dao.core.DictMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.core.domain.entity.core.Dict">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="DICT_CODE" jdbcType="VARCHAR" property="dictCode" />
+    <result column="DICT_NAME" jdbcType="VARCHAR" property="dictName" />
+    <result column="DICT_REMARK" jdbcType="VARCHAR" property="dictRemark" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_UPDATE_TIME" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+  </resultMap>
+</mapper>

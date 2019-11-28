@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchTaskInfMapper">
+  <resultMap id="BaseResultMap" type="com.hehanpeng.framework.cloudhhp.module.batch.domain.entity.batch.BatchTaskInf">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="TASK_NAME" jdbcType="VARCHAR" property="taskName" />
+    <result column="TASK_EXPRESS" jdbcType="VARCHAR" property="taskExpress" />
+    <result column="ALIAS_NAME" jdbcType="VARCHAR" property="aliasName" />
+    <result column="OPR_ID" jdbcType="VARCHAR" property="oprId" />
+    <result column="TASK_STAT" jdbcType="CHAR" property="taskStat" />
+    <result column="MACH_ID" jdbcType="VARCHAR" property="machId" />
+    <result column="CLUSTER_NAME" jdbcType="VARCHAR" property="clusterName" />
+    <result column="TASK_PARA" jdbcType="VARCHAR" property="taskPara" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>

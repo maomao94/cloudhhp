@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="chainProcessorFactory" class="com.hehanpeng.framework.cloudhhp.module.core.frame.chain.ChainProcessorFactory">
+        <property name="requestProcessorMap">
+            <map>
+                <entry key="testFlow" value-ref="consumeRequestProcessorChain"/>
+            </map>
+        </property>
+        <property name="responseProcessorMap">
+            <map>
+                <entry key="testFlow" value-ref="commonResponseProcessorChain"/>
+            </map>
+        </property>
+        <property name="timeoutProcessorMap">
+            <map>
+                <entry key="testFlow" value-ref="commonTimeoutProcessorChain"/>
+            </map>
+        </property>
+        <property name="forwardProcessorMap">
+            <map>
+                <entry key="testFlow" value-ref="commonForwardProcessorChain"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- chain  START -->
+    <bean id="consumeRequestProcessorChain" class="com.hehanpeng.framework.cloudhhp.module.core.frame.chain.UnitChain">
+        <property name="processors">
+            <list>
+                <ref bean="filterUnit"/><!-- 过滤器 -->
+                <ref bean="commonRequestUnit"/><!-- 交易处理 -->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="commonResponseProcessorChain" class="com.hehanpeng.framework.cloudhhp.module.core.frame.chain.UnitChain">
+        <property name="processors">
+            <list>
+                <ref bean="filterUnit"/><!-- 过滤器 -->
+                <ref bean="commonResponseUnit"/><!-- 交易处理 -->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="commonTimeoutProcessorChain" class="com.hehanpeng.framework.cloudhhp.module.core.frame.chain.UnitChain">
+        <property name="processors">
+            <list>
+                <ref bean="filterUnit"/><!-- 过滤器 -->
+            </list>
+        </property>
+    </bean>
+
+    <bean id="commonForwardProcessorChain" class="com.hehanpeng.framework.cloudhhp.module.core.frame.chain.UnitChain">
+        <property name="processors">
+            <list>
+                <ref bean="filterUnit"/><!-- 过滤器 -->
+            </list>
+        </property>
+    </bean>
+    <!-- chain  END -->
+
+</beans>

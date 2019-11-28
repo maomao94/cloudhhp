@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="TEST_FLOW" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="START">
+                    <bean class="com.hehanpeng.framework.cloudhhp.module.core.frame.workflow.BusinessProcessorProxy">
+                        <property name="nextWorks">
+                            <map>
+                                <entry key="CONTINUE" value="GenericRequestProcessorFlow"/>
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+
+                <entry key="GenericRequestProcessorFlow">
+                    <bean class="com.hehanpeng.framework.cloudhhp.module.core.frame.workflow.BusinessProcessorProxy">
+                        <property name="businessProcessor" ref="genericRequestProcessor"/>
+                        <property name="nextWorks">
+                            <map>
+                                <entry key="CONTINUE" value="genericResponseProcessorFlow"/>
+<!--                                <entry key="TIMEOUT" value=""/>-->
+                            </map>
+                        </property>
+                    </bean>
+                </entry>
+
+                <entry key="genericResponseProcessorFlow">
+                    <bean class="com.hehanpeng.framework.cloudhhp.module.core.frame.workflow.BusinessProcessorProxy">
+                        <property name="businessProcessor" ref="genericResponseProcessor" />
+<!--                        <property name="nextWorks">-->
+<!--                            <map>-->
+<!--                                <entry key="SUCCESS" value="" />-->
+<!--                                <entry key="FAILED" value="" />-->
+<!--                                <entry key="PROCESSING" value="" />-->
+<!--                            </map>-->
+<!--                        </property>-->
+                    </bean>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+</beans>
