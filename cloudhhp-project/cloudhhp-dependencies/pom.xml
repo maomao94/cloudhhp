@@ -22,9 +22,9 @@
         <com.github.pagehelper.version>1.2.10</com.github.pagehelper.version>
         <lombok.version>1.18.8</lombok.version>
         <org.redisson.version>3.8.2</org.redisson.version>
-        <com.alibaba.dubbo.registry.nacos.version>0.0.1</com.alibaba.dubbo.registry.nacos.version>
+        <com.alibaba.dubbo.registry.nacos.version>2.6.7</com.alibaba.dubbo.registry.nacos.version>
         <com.alibaba.dubbo.version>2.6.5</com.alibaba.dubbo.version>
-        <com.alibaba.spring.spring.context.support.version>1.0.2</com.alibaba.spring.spring.context.support.version>
+        <com.alibaba.spring.spring.context.support.version>1.0.5</com.alibaba.spring.spring.context.support.version>
         <brave-instrumentation-dubbo-rpc.version>5.8.0</brave-instrumentation-dubbo-rpc.version>
     </properties>
     <dependencyManagement>
