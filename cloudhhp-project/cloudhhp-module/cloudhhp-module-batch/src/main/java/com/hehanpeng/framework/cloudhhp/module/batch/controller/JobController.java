@@ -1,5 +1,6 @@
 package com.hehanpeng.framework.cloudhhp.module.batch.controller;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.hehanpeng.framework.cloudhhp.module.batch.factory.CronTriggerFactory;
 import com.hehanpeng.framework.cloudhhp.module.batch.message.MessageListenerInitilization;
 import com.hehanpeng.framework.cloudhhp.module.batch.message.msinterface.MessageSender;
@@ -16,7 +17,6 @@ import org.springframework.batch.core.repository.JobExecutionAlreadyRunningExcep
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.alibaba.nacos.NacosDiscoveryProperties;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

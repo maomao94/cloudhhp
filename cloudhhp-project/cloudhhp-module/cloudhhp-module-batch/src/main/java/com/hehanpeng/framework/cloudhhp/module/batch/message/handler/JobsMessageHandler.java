@@ -1,5 +1,6 @@
 package com.hehanpeng.framework.cloudhhp.module.batch.message.handler;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.fastjson.JSON;
 import com.hehanpeng.framework.cloudhhp.common.dicts.BatchChannelConstant;
 import com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchJobInstanceMapper;
@@ -17,7 +18,6 @@ import org.springframework.batch.core.repository.JobExecutionAlreadyRunningExcep
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.alibaba.nacos.NacosDiscoveryProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 

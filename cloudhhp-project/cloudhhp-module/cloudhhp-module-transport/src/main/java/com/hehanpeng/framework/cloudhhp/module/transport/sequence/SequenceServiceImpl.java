@@ -1,10 +1,10 @@
 package com.hehanpeng.framework.cloudhhp.module.transport.sequence;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.hehanpeng.framework.cloudhhp.common.util.IdWorker;
 import com.hehanpeng.framework.cloudhhp.common.util.StringUtil;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.alibaba.nacos.NacosDiscoveryProperties;
 import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;

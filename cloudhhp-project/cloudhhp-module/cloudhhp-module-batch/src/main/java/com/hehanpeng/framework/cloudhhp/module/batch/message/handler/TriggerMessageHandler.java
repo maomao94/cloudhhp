@@ -1,5 +1,6 @@
 package com.hehanpeng.framework.cloudhhp.module.batch.message.handler;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.hehanpeng.framework.cloudhhp.common.dicts.BatchChannelConstant;
 import com.hehanpeng.framework.cloudhhp.common.dicts.BatchConstants;
 import com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchTaskInfMapper;
@@ -10,7 +11,6 @@ import com.hehanpeng.framework.cloudhhp.module.batch.message.msinterface.Message
 import com.hehanpeng.framework.cloudhhp.module.batch.quartz.AbstractQuartzJobBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.alibaba.nacos.NacosDiscoveryProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import tk.mybatis.mapper.entity.Example;

@@ -1,5 +1,6 @@
 package com.hehanpeng.framework.cloudhhp.module.batch.listener;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.hehanpeng.framework.cloudhhp.common.dicts.BatchConstants;
 import com.hehanpeng.framework.cloudhhp.module.batch.dao.batch.BatchTaskInfMapper;
 import com.hehanpeng.framework.cloudhhp.module.batch.domain.entity.batch.BatchTaskInf;
@@ -8,7 +9,6 @@ import com.hehanpeng.framework.cloudhhp.module.batch.quartz.AbstractQuartzJobBea
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.cloud.alibaba.nacos.NacosDiscoveryProperties;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,7 @@
 package com.hehanpeng.framework.cloudhhp.module.forward.sequence;
 
+import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.alibaba.nacos.NacosDiscoveryProperties;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
