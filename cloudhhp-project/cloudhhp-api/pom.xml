@@ -18,9 +18,9 @@
         <main.basedir>${basedir}/../..</main.basedir>
     </properties>
     <modules>
-         <module>cloudhhp-api-batch</module>
+<!--         <module>cloudhhp-api-batch</module>-->
          <module>cloudhhp-api-core</module>
-         <module>cloudhhp-api-gate</module>
+<!--         <module>cloudhhp-api-gate</module>-->
          <module>cloudhhp-api-forward</module>
     </modules>
 </project>
