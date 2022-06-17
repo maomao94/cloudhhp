@@ -18,7 +18,7 @@
         <spring.boot.version>2.1.9.RELEASE</spring.boot.version>
         <spring.cloud.version>Greenwich.SR3</spring.cloud.version>
         <spring.cloud.alibaba.version>2.1.0.RELEASE</spring.cloud.alibaba.version>
-        <fastjson.version>1.2.56</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
         <com.github.pagehelper.version>1.2.10</com.github.pagehelper.version>
         <lombok.version>1.18.8</lombok.version>
